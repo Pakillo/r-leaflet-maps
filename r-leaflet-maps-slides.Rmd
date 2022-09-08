@@ -7,6 +7,7 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: '16:9'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -16,7 +17,7 @@ output:
 options(htmltools.dir.version = FALSE)
 
 library(knitr)
-opts_chunk$set(message = FALSE, warning = FALSE, 
+opts_chunk$set(message = FALSE, warning = FALSE, cache = TRUE,
                fig.height = 6, fig.width = 8, fig.align = "center", 
                out.width = '100%') #out.height = '400px')
 ```
@@ -88,7 +89,7 @@ palms <- dplyr::sample_n(palms, 200)
 kable(head(palms[, c(1, 2, 6:8)]), format = "html")
 ```
 
-Source: http://sevilla-idesevilla.opendata.arcgis.com/datasets/778759ea5f3243dd91225605e79a66c6_0
+Source: https://opendata.esri.es/datasets/ideSEVILLA::parques-y-jardines-palmera-viario/about
 
 
 ---
@@ -101,7 +102,7 @@ library("leaflet")
 
 https://rstudio.github.io/leaflet
 
-([Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/leaflet.pdf))
+([Cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/leaflet.pdf))
 
 
 ---
@@ -418,7 +419,7 @@ leaflet(palms[1:2,]) %>%
 
 ## R graphics as popups
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width="80%"}
 include_graphics("data/popup-histog.PNG")
 ```
 
@@ -524,7 +525,7 @@ class: inverse, middle, center
 ## Sevilla neighbourhoods
 
 ```{r echo=1}
-barrios <- sf::st_read("data/barrios.shp")
+barrios <- sf::st_read("data/Barrios.shp")
 head(barrios)
 ```
 
